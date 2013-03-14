@@ -1,0 +1,14 @@
+{
+    "idle": {
+        "exec":     "idleHandler",
+        "params":   ["time"],
+        "randMax":  20,
+        "randMin":  5
+    },
+    "move": {
+        "exec":     "moveHandler",
+        "params":   ["goal"],
+        "randMax":  15,
+        "randMin":  1
+    }
+}

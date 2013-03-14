@@ -1,0 +1,15 @@
+{
+    "tZoning": {
+        "priority": 9999,
+        "queue": [
+            {
+                "name": "idle",
+                "args": ["rand"]
+            },
+            {
+                "name": "move",
+                "args": ["rand"]
+            }
+        ]
+    }
+}
