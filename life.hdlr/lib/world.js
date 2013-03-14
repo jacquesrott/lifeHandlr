@@ -16,6 +16,9 @@ var _World = function(_io) {
     this.populate();
 };
 
+/*
+ *  Populate the world with inhabitants
+ */
 _World.prototype.populate = function() {
     for(var i = 0 ; i < this.demography ; ++i) {
         var uid = connect.utils.uid(5);
@@ -23,6 +26,9 @@ _World.prototype.populate = function() {
     }
 };
 
+/*
+ *  Update event, each framerate
+ */
 _World.prototype.update = function(_now, _delta) {
     for(h in this.assets.inhabitants) {
         this.assets.inhabitants[h].update(_now, _delta);

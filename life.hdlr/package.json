@@ -1,0 +1,10 @@
+{
+    "name": "life.hdlr",
+    "main": "main.js",
+    "readmeFilename": "README.md",
+    "version": "0.000000001",
+    "private": true,
+    "description": "Server side engine.",
+    "author": "Jacques Rott <jacques.rott@gmail.com>",
+    "license": "GPU"
+}

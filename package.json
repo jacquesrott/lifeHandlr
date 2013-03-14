@@ -1,14 +1,21 @@
 {
-  "name": "application-name",
+  "name": "lifeHandlr",
   "version": "0.0.1",
   "private": true,
   "readmeFilename": "README.md",
   "scripts": {
-    "start": "node app"
+    "start": "node app.js"
   },
   "dependencies": {
     "express": "3.1.0",
     "socket.io": "0.9.x",
-    "jade": "*"
-  }
+    "jade": "*",
+  },
+  "gitHead": "600f26d1fbaf1bec95cad306d267e78384001616",
+  "description": "Multiplayer god game, in browser with WebGL",
+  "main": "app.js",
+  "devDependencies": {},
+  "repository": "",
+  "author": "Jacques Rott <jacques.rott@gmail.com>",
+  "license": "GPU"
 }

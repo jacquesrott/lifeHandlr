@@ -1,5 +1,8 @@
 var m   = require("./math.js");
 
+/*
+ *      Handle Idling state, when agent is waiting
+ */
 exports.idleHandler = function(_delta) {
     if(this.counter == undefined)
         this.counter = 0;
@@ -9,6 +12,9 @@ exports.idleHandler = function(_delta) {
 };
 
 
+/*
+ *      Handle movement state, when agent reach a goal
+ */
 exports.moveHandler = function(_delta) {
     if(this.direction == undefined) {
         //this.goal       = m.vec2.fromValues(this.x, this.y);

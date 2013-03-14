@@ -8,7 +8,7 @@ var express = require('express')
   , user    = require('./routes/user')
   , http    = require('http')
   , path    = require('path')
-  , engine  = require('./engine');
+  , life    = require('./life.hdlr');
 
 var app = express();
 var server = http.createServer(app);
@@ -29,7 +29,7 @@ app.configure('development', function(){
     app.use(express.errorHandler());
 });
 
-engine.listen(io);
+life.listen(io);
 
 app.get('/', routes.index);
 

@@ -1,27 +1,31 @@
 var math     = require("./math.js")
   , rand     = require("./random.js")
   , handler  = require("./handler.js")
-  , iaStates = require("../ia/states.json")
-  , iaTasks  = require("../ia/tasks.json");
+  , iaStates = require("../ia/states.json")     // IA states
+  , iaTasks  = require("../ia/tasks.json");     // IA tasks
 
 
 var _Human = function(_uid) {
     this.id     = _uid;
     this.pos    = math.vec2.fromValues(
-        rand.randFloat(0, 2048),
+        // random position
+        rand.randFloat(0, 2048),        // TODO: get world size
         rand.randFloat(0, 2048)
     );
-    this.female = rand.randBool();
+    this.female = rand.randBool();      // Genetic recombination
     this.task   = null;
     this.state  = [];
     this.life   = 100;
-    this.mass   = 75.0;
+    this.mass   = 70.8;             // European average weight
     this.speed  = 1.0;
     this.queue  = [];
 
     this.setTask("tZoning");
 };
 
+/*
+ *  Agent Task setter
+ */
 _Human.prototype.setTask  = function(_name) {
     if(this.task == null || iaTasks[_name].priority < this.task.priority ) {
         this.task = iaTasks[_name];
@@ -29,6 +33,9 @@ _Human.prototype.setTask  = function(_name) {
     }
 };
 
+/*
+ *  Initialize states listening
+ */
 _Human.prototype.setState = function(_index) {
     for(s in this.task.queue) {
         var args = this.task.queue[s].args;
@@ -46,6 +53,9 @@ _Human.prototype.setState = function(_index) {
     }
 };
 
+/*
+ *  Agent is never bored, always looking for something...
+ */
 _Human.prototype.lookForTask = function() {
     if(false) {
         // put conditions
@@ -54,6 +64,9 @@ _Human.prototype.lookForTask = function() {
     }
 };
 
+/*
+ *  Update Agent state, each framerate
+ */
 _Human.prototype.update   = function(_now, _delta) {
     if(this.state.length) {
         if(this.state[0](_delta)) {

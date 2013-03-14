@@ -1,6 +1,7 @@
 var rand = require("./random.js")
   , math = require("./math.js");
 
+// TODO: put in config file
 var actions = {
     "moves":        mvtHandler,
     "add-building": addBuilding
@@ -14,6 +15,9 @@ function addBuilding(data) {
     //console.log(data);
 }
 
+/*
+ *  New user connection
+ */
 function initUser(socket) {
     socket.set("pos",  math.vec2.fromValues(
         rand.randFloat(0, 2048),
