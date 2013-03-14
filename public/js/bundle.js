@@ -438,7 +438,7 @@ require.define("/engine/base.js",function(require,module,exports,__dirname,__fil
   , e       = require("./events.js");
 
 
-var _BaseContext = function(_canvas) {
+var BaseContext = function(_canvas) {
     this.canvas = _canvas;
     this.server = "http://localhost:3000/";
     try {
@@ -453,29 +453,44 @@ var _BaseContext = function(_canvas) {
     this.initEvents();
 };
 
-_BaseContext.prototype.initGL = function() {
+/*
+ *  WebGL configuration
+ */
+BaseContext.prototype.initGL = function() {
     this.gl.viewportWidth    = this.canvas.width;
     this.gl.viewportHeight   = this.canvas.height;
     this.gl.clearColor(0.0, 0.0, 0.0, 1.0);
 };
 
-_BaseContext.prototype.clear  = function() {
+/*
+ *  Clear screen
+ */
+BaseContext.prototype.clear  = function() {
     this.gl.clear(this.gl.COLOR_BUFFER_BIT | this.gl.DEPTH_BUFFER_BIT);
 };
 
-_BaseContext.prototype.initConnection = function() {
+/*
+ *  Socket event listening initialization
+ */
+BaseContext.prototype.initConnection = function() {
     this.socket = io.connect(this.server);
     this.socket.on("reconnect", function() { window.location.reload(); });
     this.socket.on("update-assets", e.updateAssets.bind({base: this}));
 };
 
-_BaseContext.prototype.initEvents = function() {
+/*
+ *  Event initialization
+ */
+BaseContext.prototype.initEvents = function() {
     this.canvas.on("mousemove", {mouse: this.mouse}, e.updateMousePos);
     this.canvas.on("click", {context: this}, e.sendClick);
 };
 
 
-_BaseContext.prototype.display = function(now, delta) {
+/*
+ *  Rendering context
+ */
+BaseContext.prototype.display = function(now, delta) {
     this.clear();
 
     /*for(a in this.assets) {
@@ -483,19 +498,20 @@ _BaseContext.prototype.display = function(now, delta) {
     }*/
 };
 
-exports.BaseContext = _BaseContext;
+exports.BaseContext = BaseContext;
 
 });
 
 require.define("/engine/mouse.js",function(require,module,exports,__dirname,__filename,process,global){
 
-var _Mouse = function(_base) {
+// Mouse object
+var Mouse = function(_base) {
     this.base   = _base;
     this.pos    = vec2.create();
     this.state  = {};
 };
 
-exports.Mouse = _Mouse;
+exports.Mouse = Mouse;
 
 });
 
