@@ -17,15 +17,15 @@ REQUIREMENTS
 INSTALL
 -------
 
-Type in a terminal :
+Go in the project root and type :
 
     $ npm install
 
 RUN
 ---
 
-For run the server, you can type :
+To run the server, you can type :
 
     $ make
 
-The default port is ’3000’, you can test [here](http://localhost:3000).
+The default port is `3000`, you can test [here](http://localhost:3000).
