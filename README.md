@@ -26,6 +26,6 @@ RUN
 
 To run the server, you can type :
 
-    $ make
+    $ make server
 
 The default port is `3000`, you can test [here](http://localhost:3000).

@@ -9,12 +9,13 @@
   "dependencies": {
     "express": "3.1.0",
     "socket.io": "0.9.x",
-    "jade": "*",
+    "jade": "*"
   },
   "gitHead": "600f26d1fbaf1bec95cad306d267e78384001616",
   "description": "Multiplayer god game, in browser with WebGL",
   "main": "app.js",
-  "devDependencies": {},
+  "devDependencies": {
+  },
   "repository": "",
   "author": "Jacques Rott <jacques.rott@gmail.com>",
   "license": "GPU"
